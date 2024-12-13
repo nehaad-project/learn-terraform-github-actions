@@ -7,8 +7,6 @@ on:
   pull_request:
     types:
       - opened
-      - synchronize
-      - reopened
 
 jobs:
   terraform:
@@ -29,6 +27,15 @@ jobs:
       - name: Terraform Format
         id: fmt
         run: terraform fmt -check
+
+
+      - name: echo values
+        id: echo
+        run: echo ${{ github.ref }}
+
+      - name: echo values2
+        id: echo2
+        run: echo ${{ github.event_name }}
 
       - name: Terraform Init
         id: init
