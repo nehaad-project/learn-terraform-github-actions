@@ -5,6 +5,9 @@ on:
     branches:
       - master
   pull_request:
+      - opened
+      - synchronize
+      - reopened
 
 jobs:
   terraform:
